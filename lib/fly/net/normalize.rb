@@ -42,7 +42,10 @@ module Fly
           normal.encode!(Encoding::UTF_8)
         end
       rescue EncodingError
+        # TODO: tested with Ruby 3.x, but not reached with 2.7.5
+        # :nocov:
         normal.force_encoding(Encoding::ISO_8859_1)
+        # :nocov:
       end
     end
   end
